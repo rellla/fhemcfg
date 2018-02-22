@@ -1,0 +1,26 @@
+# Created by FHEM/98_SVG.pm, 2018-02-21 12:55:17
+set terminal png transparent size <SIZE> crop
+set output '<OUT>.png'
+set xdata time
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xlabel " "
+set title '<L1>'
+set ytics ("abw." 5, "niedrig" 10, "mittel" 15, "hoch" 20)
+set y2tics 
+set grid
+set ylabel "Stufe"
+set y2label "Temperatur"
+set yrange [0:100]
+set y2range [-15:30]
+
+#logdb Lueftung:Temp_Abluft:0:
+#logdb Lueftung:Temp_Fortluft:0:
+#logdb Lueftung:Temp_Zuluft:0:
+#logdb Lueftung:Temp_Aussen:0:
+#logdb Lueftung:Stufe:0::$val=($val=~'niedrig'?10:($val=~'mittel'?15:($val=~'hoch'?20:($val=~'abwesend'?5:($val=~35?10:($val=~50?15:($val=~70?20:($val=~15?5:$val))))))))
+
+plot "<IN>" using 1:2 axes x1y2 title 'Temp Abluft' ls l0 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y2 title 'Temp Fortluft' ls l1 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y2 title 'Temp Zuluft' ls l2 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y2 title 'Temp Aussen' ls l3 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Stufe' ls l0fill lw 1 with lines

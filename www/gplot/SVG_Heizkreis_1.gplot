@@ -1,0 +1,26 @@
+# Created by FHEM/98_SVG.pm, 2018-02-16 15:42:12
+set terminal png transparent size <SIZE> crop
+set output '<OUT>.png'
+set xdata time
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xlabel " "
+set title '<L1>'
+set ytics 
+set y2tics 
+set grid ytics y2tics
+set ylabel "Temperatur"
+set y2label "Status"
+set yrange [-20:60]
+set y2range [-0.1:1.1]
+
+#logdb HKRelaisPumpe:HKRelaisPumpe:0:
+#logdb HKVorlaufIst:HKVorlaufIst:0:
+#logdb HKVorlaufSoll:HKVorlaufSoll:0:
+#logdb Aussentemperatur:Aussentemperatur:0:
+#logdb PufferTempOben:PufferTempOben:0:
+
+plot "<IN>" using 1:2 axes x1y2 title 'Heizkreispumpe' ls l0 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp VL Ist' ls l2 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp VL Soll' ls l3 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp aussen' ls l4 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp Puffer oben' ls l5 lw 1 with lines

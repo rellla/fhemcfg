@@ -1,0 +1,32 @@
+# Created by FHEM/98_SVG.pm, 2018-02-16 15:39:30
+set terminal png transparent size <SIZE> crop
+set output '<OUT>.png'
+set xdata time
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xlabel " "
+set title '<L1>'
+set ytics 
+set y2tics 
+set grid ytics
+set ylabel "Temperatur"
+set y2label "Temperatur"
+set yrange [-20:100]
+set y2range [-20:100]
+
+#logdb Aussentemperatur:Aussentemperatur:0:
+#logdb TempHeissgas:TempHeissgas:0:
+#logdb WaermequelleIn:WaermequelleIn:0:
+#logdb WaermequelleOut:WaermequelleOut:0:
+#logdb VorlaufWP:VorlaufWP:0:
+#logdb VorlaufWPsoll:VorlaufWPsoll:0:
+#logdb RuecklaufWP:RuecklaufWP:0:
+#logdb PufferTempOben:PufferTempOben:0:
+
+plot "<IN>" using 1:2 axes x1y1 title 'Temp aussen' ls l0 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp Heissgas' ls l1 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp WQ_in' ls l2 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp WQ_out' ls l3 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp WP VList' ls l4 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp WP VLsoll' ls l5 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp WP RList' ls l6 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Temp Puffer oben' ls l7 lw 1 with lines
