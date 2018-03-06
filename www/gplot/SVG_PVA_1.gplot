@@ -1,4 +1,4 @@
-# Created by FHEM/98_SVG.pm, 2018-02-22 17:34:17
+# Created by FHEM/98_SVG.pm, 2018-03-06 11:05:56
 set terminal png transparent size <SIZE> crop
 set output '<OUT>.png'
 set xdata time
@@ -13,14 +13,13 @@ set y2label ""
 set yrange [-6000:6000]
 set y2range [0:100]
 
-#logProxy DbLog:logdb:S10:sunwatt:0:
-#logProxy DbLog:logdb:S10:homewatt:0:
-#logProxy DbLog:logdb:S10:gridwatt:0:
-#logProxy DbLog:logdb:S10:battwatt:0:
-#logProxy DbLog:logdb:S10:battsoc:0:
-#logProxy DbLog:logdb:S10:solarleistung:0:
-#logProxy DbLog:logdb:S10:SonnenEnergie:0::$val=($val/10-6000)
-#logProxy ConstY:-3455
+#lp DbLog:logdb:S10:sunwatt:0:
+#lp DbLog:logdb:S10:homewatt:0:
+#lp DbLog:logdb:S10:gridwatt:0:
+#lp DbLog:logdb:S10:battwatt:0:
+#lp DbLog:logdb:S10:battsoc:0:
+#lp DbLog:logdb:S10:solarleistung:0:
+#lp ConstY:-3455
 
 plot "<IN>" using 1:2 axes x1y1 title 'PVA Erzeugung' ls l0 lw 1 with lines,\
      "<IN>" using 1:2 axes x1y1 title 'Hausverbrauch' ls l1 lw 1 with lines,\
@@ -28,5 +27,4 @@ plot "<IN>" using 1:2 axes x1y1 title 'PVA Erzeugung' ls l0 lw 1 with lines,\
      "<IN>" using 1:2 axes x1y1 title 'Batterieverbrauch' ls l3 lw 1 with lines,\
      "<IN>" using 1:2 axes x1y2 title 'Batterieladung' ls l1fill lw 1 with lines,\
      "<IN>" using 1:2 axes x1y1 title 'Solarleistung' ls l4 lw 1 with lines,\
-     "<IN>" using 1:2 axes x1y1 title 'Sonnenenergie' ls l2fill lw 1 with lines,\
-     "<IN>" using 1:2 axes x1y1 title 'Abregelung' ls 15 lw 1 with lines
+     "<IN>" using 1:2 axes x1y1 title 'Abregelung' ls l0 lw 1 with lines

@@ -1,4 +1,4 @@
-# Created by FHEM/98_SVG.pm, 2018-02-21 12:55:17
+# Created by FHEM/98_SVG.pm, 2018-02-22 17:34:39
 set terminal png transparent size <SIZE> crop
 set output '<OUT>.png'
 set xdata time
@@ -7,7 +7,7 @@ set xlabel " "
 set title '<L1>'
 set ytics ("abw." 5, "niedrig" 10, "mittel" 15, "hoch" 20)
 set y2tics 
-set grid
+set grid y2tics
 set ylabel "Stufe"
 set y2label "Temperatur"
 set yrange [0:100]
