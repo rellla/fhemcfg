@@ -1,4 +1,4 @@
-# Created by FHEM/98_SVG.pm, 2018-02-16 15:45:15
+# Created by FHEM/98_SVG.pm, 2018-12-13 16:33:40
 set terminal png transparent size <SIZE> crop
 set output '<OUT>.png'
 set xdata time
@@ -10,14 +10,14 @@ set y2tics
 set grid ytics
 set ylabel "Temperatur"
 set y2label "Ein/Aus"
-set yrange [0:60]
+set yrange [0:70]
 set y2range [-0.1:1.1]
 set y2scale log
 
 #logdb Warmwasser:Warmwasser:0:
 #logdb Zirkulation:Zirkulation:0:
 #logdb WWPumpe:WWPumpe:0:
-#logdb WarmwasserSollCalc:WarmwasserSollCalc:0:
+#logdb WarmwasserSoll:WarmwasserSoll:0:
 #logdb PufferTempOben:PufferTempOben:0:
 
 plot "<IN>" using 1:2 axes x1y1 title 'Temp WW ist' ls l0 lw 1 with lines,\

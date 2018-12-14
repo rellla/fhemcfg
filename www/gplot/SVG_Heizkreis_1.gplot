@@ -1,4 +1,4 @@
-# Created by FHEM/98_SVG.pm, 2018-02-16 15:42:12
+# Created by FHEM/98_SVG.pm, 2018-07-02 14:37:17
 set terminal png transparent size <SIZE> crop
 set output '<OUT>.png'
 set xdata time
@@ -10,7 +10,7 @@ set y2tics
 set grid ytics y2tics
 set ylabel "Temperatur"
 set y2label "Status"
-set yrange [-20:60]
+set yrange [-15:70]
 set y2range [-0.1:1.1]
 
 #logdb HKRelaisPumpe:HKRelaisPumpe:0:

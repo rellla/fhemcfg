@@ -1,0 +1,26 @@
+# Created by FHEM/98_SVG.pm, 2018-07-03 16:25:25
+set terminal png transparent size <SIZE> crop
+set output '<OUT>.png'
+set xdata time
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xlabel " "
+set title '<L1>'
+set ytics ("aus" 1, "ein" 20)
+set y2tics 
+set grid y2tics
+set ylabel ""
+set y2label "Temperature"
+set yrange [0:100]
+set y2range [0:100]
+
+#logdb VBUS_DEVICE:Temperatur_Sensor_3:0:
+#logdb VBUS_DEVICE:Temperatur_Sensor_2:0:
+#logdb VBUS_DEVICE:Temperatur_Sensor_1:0:
+#logdb VBUS_DEVICE:Relais_4:0::$val=($val=~'on'?20:1)
+#logdb VBUS_DEVICE:Drehzahl_1:0::$val=($val/5)
+
+plot "<IN>" using 1:2 axes x1y2 title 'Puffer oben' ls l0 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y2 title 'Puffer unten' ls l1 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y2 title 'Kollektor' ls l2 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y2 title 'Relais' ls l3 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'Drehzahl' ls l4 lw 1 with lines
